@@ -7,14 +7,27 @@ class Solution:
                 sum += (n%10)**2
                 n = n//10
             return sum
-
-        slow = fast = n
-
-        while True:
-            slow = getSquareSum(slow)
-            fast = getSquareSum(getSquareSum(fast))
-            
-            if slow == fast:
-                break
         
-        return slow == 1
+        approach = 2
+
+        if approach == 1:
+            slow = fast = n
+
+            while True:
+                slow = getSquareSum(slow)
+                fast = getSquareSum(getSquareSum(fast))
+
+                if slow == fast:
+                    break
+
+            return slow == 1
+        else:
+            visited = set()
+            while True:
+                n = getSquareSum(n)
+
+                if n in visited:
+                    break
+                visited.add(n)
+
+            return n == 1
