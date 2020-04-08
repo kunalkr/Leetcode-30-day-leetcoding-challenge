@@ -6,16 +6,10 @@
 
 class Solution:
     def middleNode(self, head: ListNode) -> ListNode:
-        isEvenLenList = False
         slow = fast = head
 
-        while fast:
-            if fast.next:
-                fast = fast.next.next
-            else:
-                isEvenLenList = True
-                fast = fast.next
-            if fast or not isEvenLenList:
-                slow = slow.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
         
         return slow
