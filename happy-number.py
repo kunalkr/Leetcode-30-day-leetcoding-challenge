@@ -8,7 +8,7 @@ class Solution:
                 n = n//10
             return sum
         
-        approach = 2
+        approach = 1
 
         if approach == 1:
             slow = fast = n
